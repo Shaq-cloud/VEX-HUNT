@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vexhunt</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<body>
+
+
+<!-- ================= HEADER ================= -->
+<header class="vh-header">
+<div class="vh-logo"><img src="#" alt="">Vex<span>Hunt</span></div>
+
+
+<!-- Search -->
+<div class="vh-search">
+<input type="text" placeholder="Search vendors, food, shops…" />
+<button><img src="free-search-icon-free-vector.jpg" alt="Search"></button>
+</div>
+
+
+<!-- Desktop Actions -->
+<div class="vh-actions desktop-only">
+<button class="vh-help">Help</button>
+<button class="vh-orders">Orders</button>
+</div>
+
+
+<!-- Hamburger -->
+<button id="vhMenuBtn" class="vh-hamburger">☰</button>
+</header>
+<!-- ================= MOBILE MENU ================= -->
+<div id="vhMobileMenu" class="vh-mobile-menu">
+<div class="vh-mobile-header">
+<div class="vh-logo">Vex<span>Hunt</span></div>
+<button id="vhCloseMenu">✕</button>
+</div>
+
+
+<nav class="vh-mobile-nav">
+<a href="#">Help</a>
+<a href="#">Orders</a>
+<button id="vhDarkToggle">Toggle Dark Mode</button>
+</nav>
+</div>
+
+
+<!-- ================= CHATBOT ================= -->
+<button id="vhChatBtn" class="vh-chat-fab">X Vex Hunt</button>
+
+
+<div id="vhChat" class="vh-chat">
+<div class="vh-chat-header">
+<span>X Vex Hunt</span>
+<button id="vhChatClose">✕</button>
+</div>
+
+<div class="vh-chat-body">
+<div class="vh-bot-msg">👋 Hi! I'm Vex Hunt. What can I help you with today?</div>
+</div>
+
+
+<div class="vh-chat-input">
+<input type="text" placeholder="Type a message…" />
+<button>Send</button>
+</div>
+</div>
+
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Hungry on
+       <br><span>Campus ?</span></h1>
+    <p>Discover amazing food vendors right one campus.
+      Order your favrite meals and have them delivered to your location in minutes</p>
+
+    <div class="hero-buttons">
+      <a href="#" class="btn primary">Browse Vendors</a>
+    </div>
+  </div>
+
+  <div class="hero-slider">
+    
+    <div class="slider">
+      <div class="slide active">
+        <img src="image1.png" alt="" >
+      </div>
+      <div class="slide">
+        <img src="image2.png" alt="">
+      </div>
+      <div class="slide">
+        <img src="image3.png" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="marketplace-section">
+  <div class="container">
+
+    <h2 class="section-title">Top Vendors Near You</h2>
+    <div class="vendors-grid">
+
+      <!-- Vendor 1 -->
+      <div class="vendor-card">
+        <div class="vendor-image">
+          <img src="licks.jpeg" alt="Vendor">
+          <span class="vendor-status open">Open</span>
+        </div>
+        <div class="vendor-content">
+          <h4>LICKS</h4>
+          <div class="vendor-rating">⭐⭐⭐⭐⭐ <span>(4.8)</span></div>
+          <p class="vendor-desc">Fast meals, local dishes, and affordable campus food.</p>
+          <div class="vendor-meta">
+            <span class="location">📍Ayensu Road</span>
+            <span class="active">● Active now</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vendor 2 -->
+      <div class="vendor-card">
+        <div class="vendor-image">
+          <img src="or.jpeg" alt="Vendor">
+          <span class="vendor-status closed">Closed</span>
+        </div>
+        <div class="vendor-content">
+          <h4>Oraios fast food</h4>
+          <div class="vendor-rating">⭐⭐⭐⭐☆ <span>(4.3)</span></div>
+          <p class="vendor-desc">Grilled meals, BBQ, and late-night snacks.</p>
+          <div class="vendor-meta">
+            <span class="location">📍 UCC Campus</span>
+            <span class="inactive">● Offline</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vendor 3 -->
+      <div class="vendor-card">
+        <div class="vendor-image">
+          <img src="dat.jpeg" alt="Vendor">
+          <span class="vendor-status open">Open</span>
+        </div>
+        <div class="vendor-content">
+          <h4>Dat shawarma guy</h4>
+          <div class="vendor-rating">⭐⭐⭐⭐⭐ <span>(4.9)</span></div>
+          <p class="vendor-desc">Cakes, pastries, and desserts made fresh daily.</p>
+          <div class="vendor-meta">
+            <span class="location">📍 Cape Coast</span>
+            <span class="active">● Active now</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vendor 4 -->
+      <div class="vendor-card">
+        <div class="vendor-image">
+          <img src="kooo.jpeg" alt="Vendor">
+          <span class="vendor-status open">Open</span>
+        </div>
+        <div class="vendor-content">
+          <h4>Kooqs</h4>
+          <div class="vendor-rating">⭐⭐⭐⭐ <span>(4.5)</span></div>
+          <p class="vendor-desc">Healthy salads, vegan bowls, and fresh smoothies.</p>
+          <div class="vendor-meta">
+            <span class="location">📍 UCC Campus</span>
+            <span class="active">● Active now</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vendor 5 -->
+      <div class="vendor-card">
+        <div class="vendor-image">
+          <img src="boo.jpeg" alt="Vendor">
+          <span class="vendor-status closed">Closed</span>
+        </div>
+        <div class="vendor-content">
+          <h4>Boba x (Ayensu road)</h4>
+          <div class="vendor-rating">⭐⭐⭐⭐ <span>(4.2)</span></div>
+          <p class="vendor-desc">Tasty street snacks and quick meals for students.</p>
+          <div class="vendor-meta">
+            <span class="location">📍 Cape Coast</span>
+            <span class="inactive">● Offline</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vendor 6 -->
+      <div class="vendor-card">
+        <div class="vendor-image">
+          <img src="samb.jpeg" alt="Vendor">
+          <span class="vendor-status open">Open</span>
+        </div>
+        <div class="vendor-content">
+          <h4>SAMBRIDGE Delights</h4>
+          <div class="vendor-rating">⭐⭐⭐⭐⭐ <span>(4.7)</span></div>
+          <p class="vendor-desc">Local and continental dishes with rich flavors.</p>
+          <div class="vendor-meta">
+            <span class="location">📍 UCC Campus</span>
+            <span class="active">● Active now</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vendor 5 -->
+      <div class="vendor-card">
+        <div class="vendor-image">
+          <img src="JUss.jpeg" alt="Vendor">
+          <span class="vendor-status closed">Closed</span>
+        </div>
+        <div class="vendor-content">
+          <h4>Jus pizza</h4>
+          <div class="vendor-rating">⭐⭐⭐⭐ <span>(4.2)</span></div>
+          <p class="vendor-desc">Hot and Spicy Shawarma plus fresh juice</p>
+          <div class="vendor-meta">
+            <span class="location">📍 Science</span>
+            <span class="inactive">● Offline</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Vendor 5 -->
+      <div class="vendor-card">
+        <div class="vendor-image">
+          <img src="chef.jpeg" alt="Vendor">
+          <span class="vendor-status open">Closed</span>
+        </div>
+        <div class="vendor-content">
+          <h4>Tasty Chef</h4>
+          <div class="vendor-rating">⭐⭐⭐⭐ <span>(4.4)</span></div>
+          <p class="vendor-desc">Tasty street snacks and quick meals for students.</p>
+          <div class="vendor-meta">
+            <span class="location">📍 Cape Coast</span>
+            <span class="active">● Online</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  // Select all vendor cards
+  const vendorCards = document.querySelectorAll('.vendor-card');
+
+  // Define online hours
+  const onlineStart = 8;      // 8 AM
+  const onlineEndHour = 24;   // 9 PM
+  const onlineEndMinute = 30; // 9:30 PM
+
+  function updateVendorStatusByTime() {
+    const now = new Date();
+    const currentHour = now.getHours();
+    const currentMinute = now.getMinutes();
+
+    // Check if current time is within online hours
+    const isOnline = (currentHour > onlineStart || (currentHour === onlineStart && currentMinute >= 0)) &&
+                     (currentHour < onlineEndHour || (currentHour === onlineEndHour && currentMinute <= onlineEndMinute));
+
+    // Update all vendor cards
+    vendorCards.forEach(card => {
+      const badge = card.querySelector('.vendor-status');
+      const metaStatus = card.querySelector('.active, .inactive');
+
+      if (isOnline) {
+        badge.textContent = "Open";
+        badge.classList.remove('closed');
+        badge.classList.add('open');
+
+        if(metaStatus){
+          metaStatus.textContent = "● Active now";
+          metaStatus.classList.remove('inactive');
+          metaStatus.classList.add('active');
+        }
+      } else {
+        badge.textContent = "Closed";
+        badge.classList.remove('open');
+        badge.classList.add('closed');
+
+        if(metaStatus){
+          metaStatus.textContent = "● Offline";
+          metaStatus.classList.remove('active');
+          metaStatus.classList.add('inactive');
+        }
+      }
+    });
+  }
+
+  // Run initially
+  updateVendorStatusByTime();
+
+  // Optional: Update every 1 minute in case user leaves page open
+  setInterval(updateVendorStatusByTime, 60000);
+</script>
+
+<section class="our-process">
+  <div class="container">
+    <h2 class="section-title">How It Works</h2>
+
+    <div class="timeline">
+      
+      <div class="timeline-line"></div> 
+
+      <div class="timeline-step left">
+        <div class="step-card">
+          <h3>1: Browse & Ask</h3>
+          <p>
+            Customers interact with our smart chatbot to browse products, ask questions,
+            and get instant recommendations based on their needs.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-step right">
+        <div class="step-card">
+          <h3>2: Select & Customize</h3>
+          <p>
+            The chatbot helps users select items, customize orders, check availability,
+            and confirm details such as quantity, location, and preferences.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-step left">
+        <div class="step-card">
+          <h3>3: Order & Payment</h3>
+          <p>
+            Orders are placed directly through the chatbot with secure payment options,
+            making the checkout process fast, simple, and hassle-free.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-step right">
+        <div class="step-card">
+          <h3>4: Delivery & Support</h3>
+          <p>
+            Orders are processed and delivered efficiently, while the chatbot provides
+            real-time updates, support, and post-purchase assistance.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= CHATBOT CTA ================= -->
+<section class="chatbot-card-section fade-in">
+  <div class="chatbot-container">
+    <a href="./ll/chatbot/chatbot/chatbot.html" class="chatbot-card-link">
+      <div class="chatbot-card">
+        <div class="chatbot-content">
+          <h2>Need Assistance? Chat with Our AI Bot!</h2>
+          <p>
+            Our intelligent chatbot is here to help you instantly.
+            Get answers, support, and guidance 24/7.
+            Start a conversation now for seamless assistance.
+          </p>
+          <button>Let’s Talk</button>
+        </div>
+      </div>
+    </a>
+  </div>
+  </section>
+
+
+
+
+
+<section>
+<div class="customers-section">
+  <h1 class="sub-heading"><align="center"></h1>
+
+    <h2 class="section-title">Customer Reviews</h2>
+
+  <div class="reviews-grid">
+
+    <!-- Review Card -->
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">Fast delivery and smooth chatbot ordering.</p>
+      <div class="review-user"><strong>Ama K.</strong><span>Student</span></div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">The vendors are very reliable.</p>
+      <div class="review-user"><strong>Kojo A.</strong><span>Customer</span></div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★☆</div>
+      <p class="review-text">Great experience overall.</p>
+      <div class="review-user"><strong>Linda M.</strong><span>Customer</span></div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">Ordering food has never been easier.</p>
+      <div class="review-user"><strong>Yaw T.</strong><span>Student</span></div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★☆</div>
+      <p class="review-text">Customer support is excellent.</p>
+      <div class="review-user"><strong>Sarah B.</strong><span>Customer</span></div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">Highly recommend this platform.</p>
+      <div class="review-user"><strong>Daniel K.</strong><span>Customer</span></div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">As a vendor, sales improved instantly.</p>
+      <div class="review-user"><strong>Spice Hub</strong><span>Vendor</span></div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★☆</div>
+      <p class="review-text">Very smooth and intuitive.</p>
+      <div class="review-user"><strong>Nana Y.</strong><span>Customer</span></div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- Brand -->
+    <div class="footer-col brand">
+      <h3>Vexhunt</h3>
+      <p>
+        A smart food-commerce platform powered by AI chatbots.
+        Order faster, discover trusted vendors, and enjoy seamless delivery.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h4>Platform</h4>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Vendors</a></li>
+        <li><a href="#">How It Works</a></li>
+        <li><a href="#">Chatbot</a></li>
+      </ul>
+    </div>
+
+    <!-- Vendors -->
+    <div class="footer-col">
+      <h4>Vendors</h4>
+      <ul>
+        <li><a href="#">Become a Vendor</a></li>
+        <li><a href="#">Vendor Dashboard</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Guidelines</a></li>
+      </ul>
+    </div>
+
+    <!-- Support -->
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Report an Issue</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul class="contact-list">
+        <li>📍 Cape Coast, Ghana</li>
+        <li>📞 +233 55 2621 921, +233 50 8453 791</li>
+        <li>✉️ support@apexfinishwebahency</li>
+      </ul>
+
+     <div class="social-links">
+  <!-- Instagram -->
+  <a href="https://instagram.com/yourusername" target="_blank" aria-label="Instagram">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+
+  <!-- Facebook (add link later) -->
+  <a href="#" aria-label="Facebook">
+    <i class="fa-brands fa-facebook-f"></i>
+  </a>
+
+  <!-- TikTok (add link later) -->
+  <a href="#" aria-label="TikTok">
+    <i class="fa-brands fa-tiktok"></i>
+  </a>
+
+  <!-- Twitter / X (add link later) -->
+  <a href="#" aria-label="Twitter">
+    <i class="fa-brands fa-x-twitter"></i>
+  </a>
+</div>
+
+
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom">
+    <p>© 2026 Vexhunt. All rights reserved.</p>
+    <div class="legal-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

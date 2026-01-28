@@ -1,0 +1,138 @@
+UPDATED: Chatbot now opens as a FULL-SCREEN OVERLAY (like a hamburger menu), not a corner card.
+
+Below are SEPARATED FILES as requested.
+
+================= HTML =================
+
+<!-- Floating Chatbot Button -->
+<button id="vexChatToggle" class="vex-chat-fab">X Vex Hunt</button>
+
+<!-- Fullscreen Chatbot Overlay -->
+<div id="vexChatOverlay" class="vex-chat-overlay">
+  <div class="vex-chat-header">
+    <span class="vex-chat-title">X Vex Hunt</span>
+    <button id="vexChatClose" class="vex-chat-close">✕</button>
+  </div>
+
+  <div class="vex-chat-body">
+    <div class="bot-message">👋 Hi! I’m Vex Hunt. How can I help you today?</div>
+  </div>
+
+  <div class="vex-chat-input">
+    <input type="text" placeholder="Type your message..." />
+    <button>Send</button>
+  </div>
+</div>
+
+================= CSS =================
+
+/* Floating Button */
+.vex-chat-fab {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #0b0c0c;
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 50px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Overlay */
+.vex-chat-overlay {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  transition: transform 0.35s ease;
+  z-index: 2000;
+}
+
+.vex-chat-overlay.active {
+  transform: translateY(0);
+}
+
+/* Header */
+.vex-chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.vex-chat-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.vex-chat-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Body */
+.vex-chat-body {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.bot-message {
+  background: #f1f1f1;
+  padding: 12px 16px;
+  border-radius: 12px;
+  max-width: 75%;
+}
+
+/* Input */
+.vex-chat-input {
+  display: flex;
+  padding: 15px;
+  border-top: 1px solid #eee;
+}
+
+.vex-chat-input input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.vex-chat-input button {
+  margin-left: 10px;
+  padding: 12px 18px;
+  border: none;
+  background: #0b0c0c;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+================= JS =================
+
+const chatToggle = document.getElementById('vexChatToggle');
+const chatOverlay = document.getElementById('vexChatOverlay');
+const chatClose = document.getElementById('vexChatClose');
+
+chatToggle.addEventListener('click', () => {
+  chatOverlay.classList.add('active');
+});
+
+chatClose.addEventListener('click', () => {
+  chatOverlay.classList.remove('active');
+});
+
+// Prevent background scroll when chat is open
+chatOverlay.addEventListener('transitionend', () => {
+  document.body.style.overflow = chatOverlay.classList.contains('active')
+    ? 'hidden'
+    : 'auto';
+});
