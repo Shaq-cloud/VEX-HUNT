@@ -578,7 +578,7 @@ h1, h2, h3, h4 {
     bottom: 0;
     right: 0;
     width: 100vw;
-    height: calc(100vh - 65px);
+    height: calc(100dvh - 65px);
     border-radius: 0;
     transform: translateY(100%);
   }
