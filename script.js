@@ -65,22 +65,14 @@ const chatClose = document.getElementById('vhChatClose');
 
 
 chatBtn.onclick = () => {
-  if (chat.classList.contains('active')) {
-    chat.classList.remove('active');
-    chatBtn.classList.remove('active');
-    document.body.style.overflow = 'auto';
-  } else {
-    chat.classList.add('active');
-    chatBtn.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
+chat.classList.add('active');
+document.body.style.overflow = 'hidden';
 };
 
 
 chatClose.onclick = () => {
-  chat.classList.remove('active');
-  chatBtn.classList.remove('active');
-  document.body.style.overflow = 'auto';
+chat.classList.remove('active');
+document.body.style.overflow = 'auto';
 };
 const slides = document.querySelectorAll('.slide');
 
@@ -120,3 +112,126 @@ slider.addEventListener('mouseleave', startAutoSlide);
 
 updateSlides();
 startAutoSlide();
+
+/* ===== Reviews carousel: horizontal sliding, controls & autoplay ===== */
+(function() {
+  const reviewsGrid = document.querySelector('.reviews-grid');
+  const prevBtn = document.querySelector('.reviews-prev');
+  const nextBtn = document.querySelector('.reviews-next');
+  if (!reviewsGrid) return;
+
+  const getGap = () => parseInt(getComputedStyle(reviewsGrid).gap) || 22;
+  const getCardWidth = () => {
+    const card = reviewsGrid.querySelector('.review-card');
+    return ((card ? card.offsetWidth : Math.round(reviewsGrid.clientWidth * 0.8)) + getGap());
+  };
+
+  if (nextBtn) nextBtn.addEventListener('click', () => reviewsGrid.scrollBy({ left: getCardWidth(), behavior: 'smooth' }));
+  if (prevBtn) prevBtn.addEventListener('click', () => reviewsGrid.scrollBy({ left: -getCardWidth(), behavior: 'smooth' }));
+
+  // Autoplay
+  let reviewsAuto;
+  const startReviewsAuto = () => { reviewsAuto = setInterval(() => reviewsGrid.scrollBy({ left: getCardWidth(), behavior: 'smooth' }), 4000); };
+  const stopReviewsAuto = () => { clearInterval(reviewsAuto); };
+  startReviewsAuto();
+
+  reviewsGrid.addEventListener('mouseenter', stopReviewsAuto);
+  reviewsGrid.addEventListener('mouseleave', startReviewsAuto);
+
+  // Pause autoplay on focus (accessibility)
+  reviewsGrid.addEventListener('focusin', stopReviewsAuto);
+  reviewsGrid.addEventListener('focusout', startReviewsAuto);
+
+  // Keyboard navigation when focused
+  reviewsGrid.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') { nextBtn && nextBtn.click(); }
+    if (e.key === 'ArrowLeft') { prevBtn && prevBtn.click(); }
+  });
+})();
+
+
+  // Select all vendor cards
+  const vendorCards = document.querySelectorAll('.vendor-card');
+
+  // Define online hours
+  const onlineStart = 8;      // 8 AM
+  const onlineEndHour = 24;   // 9 PM
+  const onlineEndMinute = 30; // 9:30 PM
+
+  function updateVendorStatusByTime() {
+    const now = new Date();
+    const currentHour = now.getHours();
+    const currentMinute = now.getMinutes();
+
+    // Check if current time is within online hours
+    const isOnline = (currentHour > onlineStart || (currentHour === onlineStart && currentMinute >= 0)) &&
+                     (currentHour < onlineEndHour || (currentHour === onlineEndHour && currentMinute <= onlineEndMinute));
+
+    // Update all vendor cards
+    vendorCards.forEach(card => {
+      const badge = card.querySelector('.vendor-status');
+      const metaStatus = card.querySelector('.active, .inactive');
+
+      if (isOnline) {
+        badge.textContent = "Open";
+        badge.classList.remove('closed');
+        badge.classList.add('open');
+
+        if(metaStatus){
+          metaStatus.textContent = "● Active now";
+          metaStatus.classList.remove('inactive');
+          metaStatus.classList.add('active');
+        }
+      } else {
+        badge.textContent = "Closed";
+        badge.classList.remove('open');
+        badge.classList.add('closed');
+
+        if(metaStatus){
+          metaStatus.textContent = "● Offline";
+          metaStatus.classList.remove('active');
+          metaStatus.classList.add('inactive');
+        }
+      }
+    });
+  }
+
+  // Run initially
+  updateVendorStatusByTime();
+
+  // Optional: Update every 1 minute in case user leaves page open
+  setInterval(updateVendorStatusByTime, 60000);
+
+
+// ================= HERO TYPING EFFECT =================
+(function heroTyping() {
+  const wrap = document.querySelector('.hero-typing');
+  if (!wrap) return;
+  const text = wrap.getAttribute('data-text') || '';
+  const target = wrap.querySelector('#type-text');
+  const cursor = wrap.querySelector('.cursor');
+  const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReduce) {
+    if (target) target.textContent = text;
+    if (cursor) cursor.style.display = 'none';
+    return;
+  }
+
+  const speed = 30; // ms per character
+  let i = 0;
+
+  function type() {
+    if (i <= text.length) {
+      if (target) target.textContent = text.slice(0, i);
+      i++;
+      setTimeout(type, speed);
+    }
+  }
+
+  // Start typing after small delay so layout settles
+  setTimeout(type, 400);
+})();
+
+
+

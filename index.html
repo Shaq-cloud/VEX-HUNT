@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>vexhunt</title>
     <link rel="stylesheet" href="style.css">
@@ -18,13 +18,13 @@
 
 <!-- ================= HEADER ================= -->
 <header class="vh-header">
-<div class="vh-logo"><img src="#" alt="">Vex<span>Hunt</span></div>
+<div class="vh-logo">Vex<span>Hunt</span></div>
 
 
 <!-- Search -->
 <div class="vh-search">
 <input type="text" placeholder="Search vendors, food, shops…" />
-<button><img src="free-search-icon-free-vector.jpg" alt="Search"></button>
+<button><img src="image4.png"></button>
 </div>
 
 
@@ -65,7 +65,7 @@
 </div>
 
 <div class="vh-chat-body">
-<div class="vh-bot-msg">👋 Hi! I'm Vex Hunt. What can I help you with today?</div>
+<div class="vh-bot-msg">👋 Hi! I’m Vex Hunt. What can I help you with today?</div>
 </div>
 
 
@@ -80,8 +80,8 @@
   <div class="hero-content">
     <h1>Hungry on
        <br><span>Campus ?</span></h1>
-    <p>Discover amazing food vendors right one campus.
-      Order your favrite meals and have them delivered to your location in minutes</p>
+    <p>Discover amazing food vendors right on campus. Order your favorite meals and have them delivered to your location in minutes
+    </p>
 
     <div class="hero-buttons">
       <a href="#" class="btn primary">Browse Vendors</a>
@@ -108,10 +108,12 @@
   <div class="container">
 
     <h2 class="section-title">Top Vendors Near You</h2>
+
     <div class="vendors-grid">
 
       <!-- Vendor 1 -->
-      <div class="vendor-card">
+       <a href="#" class="vendor-link">
+        <div class="vendor-card">
         <div class="vendor-image">
           <img src="licks.jpeg" alt="Vendor">
           <span class="vendor-status open">Open</span>
@@ -126,8 +128,10 @@
           </div>
         </div>
       </div>
+       </a>
 
-      <!-- Vendor 2 -->
+    <a href="#" class="vendor-link">
+              <!-- Vendor 2 -->
       <div class="vendor-card">
         <div class="vendor-image">
           <img src="or.jpeg" alt="Vendor">
@@ -143,8 +147,10 @@
           </div>
         </div>
       </div>
+    </a>
 
-      <!-- Vendor 3 -->
+    <a href="#" class="vendor-link">
+              <!-- Vendor 3 -->
       <div class="vendor-card">
         <div class="vendor-image">
           <img src="dat.jpeg" alt="Vendor">
@@ -159,9 +165,12 @@
             <span class="active">● Active now</span>
           </div>
         </div>
-      </div>
+      </div>    
+    </a>
 
-      <!-- Vendor 4 -->
+    
+      <a href="#" class="vendor-link">
+              <!-- Vendor 4 -->
       <div class="vendor-card">
         <div class="vendor-image">
           <img src="kooo.jpeg" alt="Vendor">
@@ -177,8 +186,10 @@
           </div>
         </div>
       </div>
+    </a>
 
-      <!-- Vendor 5 -->
+    <a href="#" class="vendor-link">
+              <!-- Vendor 5 -->
       <div class="vendor-card">
         <div class="vendor-image">
           <img src="boo.jpeg" alt="Vendor">
@@ -194,8 +205,10 @@
           </div>
         </div>
       </div>
+    </a>
 
-      <!-- Vendor 6 -->
+      <a href="#" class="vendor-link">
+              <!-- Vendor 6 -->
       <div class="vendor-card">
         <div class="vendor-image">
           <img src="samb.jpeg" alt="Vendor">
@@ -211,8 +224,10 @@
           </div>
         </div>
       </div>
+    </a>
 
-      <!-- Vendor 5 -->
+   <a href="#" class="vendor-link">
+               <!-- Vendor 7 -->
       <div class="vendor-card">
         <div class="vendor-image">
           <img src="JUss.jpeg" alt="Vendor">
@@ -228,8 +243,11 @@
           </div>
         </div>
       </div>
-      
-      <!-- Vendor 5 -->
+        
+       </a>
+
+     <a href="#" class="vendor-link">
+            <!-- Vendor 8 -->
       <div class="vendor-card">
         <div class="vendor-image">
           <img src="chef.jpeg" alt="Vendor">
@@ -246,61 +264,12 @@
         </div>
       </div>
     </div>
+
   </div>
+       </a>
+
 </section>
-<script>
-  // Select all vendor cards
-  const vendorCards = document.querySelectorAll('.vendor-card');
 
-  // Define online hours
-  const onlineStart = 8;      // 8 AM
-  const onlineEndHour = 24;   // 9 PM
-  const onlineEndMinute = 30; // 9:30 PM
-
-  function updateVendorStatusByTime() {
-    const now = new Date();
-    const currentHour = now.getHours();
-    const currentMinute = now.getMinutes();
-
-    // Check if current time is within online hours
-    const isOnline = (currentHour > onlineStart || (currentHour === onlineStart && currentMinute >= 0)) &&
-                     (currentHour < onlineEndHour || (currentHour === onlineEndHour && currentMinute <= onlineEndMinute));
-
-    // Update all vendor cards
-    vendorCards.forEach(card => {
-      const badge = card.querySelector('.vendor-status');
-      const metaStatus = card.querySelector('.active, .inactive');
-
-      if (isOnline) {
-        badge.textContent = "Open";
-        badge.classList.remove('closed');
-        badge.classList.add('open');
-
-        if(metaStatus){
-          metaStatus.textContent = "● Active now";
-          metaStatus.classList.remove('inactive');
-          metaStatus.classList.add('active');
-        }
-      } else {
-        badge.textContent = "Closed";
-        badge.classList.remove('open');
-        badge.classList.add('closed');
-
-        if(metaStatus){
-          metaStatus.textContent = "● Offline";
-          metaStatus.classList.remove('active');
-          metaStatus.classList.add('inactive');
-        }
-      }
-    });
-  }
-
-  // Run initially
-  updateVendorStatusByTime();
-
-  // Optional: Update every 1 minute in case user leaves page open
-  setInterval(updateVendorStatusByTime, 60000);
-</script>
 
 <section class="our-process">
   <div class="container">
@@ -367,14 +336,12 @@
             Get answers, support, and guidance 24/7.
             Start a conversation now for seamless assistance.
           </p>
-          <button>Let’s Talk</button>
+          <button class="Talk">Let’s Talk</button>
         </div>
       </div>
     </a>
   </div>
   </section>
-
-
 
 
 
@@ -384,58 +351,74 @@
 
     <h2 class="section-title">Customer Reviews</h2>
 
-  <div class="reviews-grid">
+  <div class="reviews-carousel">
+    <button class="reviews-prev" aria-label="Previous">‹</button>
+    <div class="reviews-grid" role="list" tabindex="0">
 
     <!-- Review Card -->
     <div class="review-card">
       <div class="stars">★★★★★</div>
-      <p class="review-text">Fast delivery and smooth chatbot ordering.</p>
-      <div class="review-user"><strong>Ama K.</strong><span>Student</span></div>
+      <p class="review-text">Everything about the food was impressive. From the aroma to the taste, it was clear that quality and effort went into the preparation. I enjoyed it a lot.</p>
+      <div class="review-user"><img src="C1.png" alt="Ama K." class="review-avatar" /><strong>Ama K.</strong><span>Student</span></div>
     </div>
 
     <div class="review-card">
       <div class="stars">★★★★★</div>
-      <p class="review-text">The vendors are very reliable.</p>
-      <div class="review-user"><strong>Kojo A.</strong><span>Customer</span></div>
+      <p class="review-text">The meal was flavorful, fresh, and nicely done. It met my expectations and even exceeded them. A very pleasant experience.</p>
+      <div class="review-user"><img src="C2.png" alt="Abena J." class="review-avatar" /><strong>Abena J.</strong><span>Customer</span></div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">This was a great meal overall. The taste was rich, the presentation was neat, and everything came together perfectly. I would gladly order again.</p>
+      <div class="review-user"><img src="C3.png" alt="Kojo A." class="review-avatar" /><strong>Kojo A.</strong><span>Customer</span></div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">I really enjoyed this food. It was prepared with care, tasted amazing, and left me feeling fully satisfied. Definitely worth recommending.</p>
+      <div class="review-user"><img src="C4.png" alt="Kweku S." class="review-avatar" /><strong>Kweku S.</strong><span>Customer</span></div>
     </div>
 
     <div class="review-card">
       <div class="stars">★★★★☆</div>
-      <p class="review-text">Great experience overall.</p>
-      <div class="review-user"><strong>Linda M.</strong><span>Customer</span></div>
+      <p class="review-text">The food was absolutely delicious, well seasoned, and very satisfying. The freshness and quality were clear from the first bite, and I truly enjoyed the entire meal.</p>
+      <div class="review-user"><img src="C5.png" alt="Linda M." class="review-avatar" /><strong>Linda M.</strong><span>Customer</span></div>
     </div>
 
     <div class="review-card">
       <div class="stars">★★★★★</div>
-      <p class="review-text">Ordering food has never been easier.</p>
-      <div class="review-user"><strong>Yaw T.</strong><span>Student</span></div>
+      <p class="review-text">The food was simple, fresh, and delicious. Nicely prepared with good flavor and balance. I was very satisfied.</p>
+      <div class="review-user"><img src="C6.png" alt="Yaw T." class="review-avatar" /><strong>Yaw T.</strong><span>Student</span></div>
     </div>
 
     <div class="review-card">
       <div class="stars">★★★★☆</div>
-      <p class="review-text">Customer support is excellent.</p>
-      <div class="review-user"><strong>Sarah B.</strong><span>Customer</span></div>
+      <p class="review-text">Really enjoyed this meal. It looked good, tasted great, and was worth every penny. Highly recommended.</p>
+      <div class="review-user"><img src="C10.png" alt="Sarah B." class="review-avatar" /><strong>Sarah B.</strong><span>Customer</span></div>
     </div>
 
     <div class="review-card">
       <div class="stars">★★★★★</div>
-      <p class="review-text">Highly recommend this platform.</p>
-      <div class="review-user"><strong>Daniel K.</strong><span>Customer</span></div>
+      <p class="review-text">This food was absolutely amazing. Every bite was full of flavor and you can tell it was made with care. I’ll gladly order again.</p>
+      <div class="review-user"><img src="C8.png" alt="Daniel K." class="review-avatar" /><strong>Daniel K.</strong><span>Customer</span></div>
     </div>
 
     <div class="review-card">
       <div class="stars">★★★★★</div>
-      <p class="review-text">As a vendor, sales improved instantly.</p>
-      <div class="review-user"><strong>Spice Hub</strong><span>Vendor</span></div>
+      <p class="review-text">A very tasty and satisfying meal. The seasoning was just right, the portion was generous, and it was served fresh. Great job overall.</p>
+      <div class="review-user"><img src="C9.png" alt="Spice Hub" class="review-avatar" /><strong>Spice Hub</strong><span>Vendor</span></div>
     </div>
 
     <div class="review-card">
       <div class="stars">★★★★☆</div>
-      <p class="review-text">Very smooth and intuitive.</p>
-      <div class="review-user"><strong>Nana Y.</strong><span>Customer</span></div>
+      <p class="review-text">The food was delicious and well prepared. The flavors were rich, the presentation was neat, and everything tasted fresh. I really enjoyed the meal and would definitely recommend it</p>
+      <div class="review-user"><img src="C7.png" alt="Nana Y." class="review-avatar" /><strong>Nana Y.</strong><span>Customer</span></div>
     </div>
 
-  </div>
+  </div> <!-- end .reviews-grid -->
+    <button class="reviews-next" aria-label="Next">›</button>
+  </div> <!-- end .reviews-carousel -->
 </div>
 </section>
 
